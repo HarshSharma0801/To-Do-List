@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1><%=MainDay%></h1>
+    <ul>
+        <% for (var i =0; i <Task.length;  i++ ) { %>
+             <li> <%= Task[i]  %> </li>
+            <% } %>
+            
+    </ul>
+    <form method="post" action="/">
+          <input type="text" placeholder="New Task" name="NewTask">
+          <button type="submit" >Add</button>
+    </form>
+</body>
+</html>
