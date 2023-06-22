@@ -3,10 +3,11 @@ const app = express();
 const bodyParser = require('body-parser');
 const ejs  = require('ejs');
 app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname+'/public'));
 app.set('view engine','ejs');
 
 var items =[] ;
+var Number ;
 app.get('/',(req,res)=>{
  var today = new Date();
  var options = {
@@ -16,7 +17,7 @@ app.get('/',(req,res)=>{
  }
  var day = today.toLocaleDateString("en-US",options);
 
- res.render("index",{MainDay:day , Task:items});
+ res.render("index",{MainDay:day , Task:items });
 
 
 })
@@ -24,6 +25,7 @@ app.get('/',(req,res)=>{
 app.post("/",(req,res)=>{
   var item = req.body.NewTask;
    items.push(item);
+  
    console.log(req.body.NewTask);
    res.redirect('/');
 
